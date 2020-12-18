@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kakao-serices-web": {
+    "service-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kakao-serices-web",
+            "outputPath": "dist/service-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kakao-serices-web:build"
+            "browserTarget": "service-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kakao-serices-web:build:production"
+              "browserTarget": "service-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kakao-serices-web:build"
+            "browserTarget": "service-web:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "kakao-serices-web:serve"
+            "devServerTarget": "service-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "kakao-serices-web:serve:production"
+              "devServerTarget": "service-web:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "kakao-serices-web"
+  "defaultProject": "service-web"
 }

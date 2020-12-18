@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'kakao-serices-web'`, () => {
+  it(`should have as title 'service-web'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('kakao-serices-web');
+    expect(app.title).toEqual('service-web');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('kakao-serices-web app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('service-web app is running!');
   });
 });

@@ -19,7 +19,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/kakao-serices-web'),
+      dir: require('path').join(__dirname, './coverage/service-web'),
       subdir: '.',
       reporters: [
         { type: 'html' },
