@@ -1,12 +1,15 @@
-<app-header fxLayout="column"></app-header>
-
-<div fxLayout="row" fxFlex="100">
-  <app-sidebar-left fxLayout="column" fxFlex="300px"></app-sidebar-left>
-  <div class="content" fxLayout="column" fxFlex>
-    <router-outlet></router-outlet>
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 bg-warning">
+      <app-sidebar-left></app-sidebar-left>
+    </div>
+    <div class="col-sm-6">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-sm-3 bg-warning">
+      <app-sidebar-right></app-sidebar-right>
+    </div>
   </div>
-  <app-sidebar-right fxLayout="column" fxFlex="300px"></app-sidebar-right>
 </div>
-
-<app-footer fxLayout="column"></app-footer>
-
+<app-footer></app-footer>
