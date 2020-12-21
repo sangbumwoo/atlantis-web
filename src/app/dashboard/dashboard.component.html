@@ -1,20 +1,39 @@
 <p>
-  dashboard works!
-</p>
-
-<p>create</p>
-
-<p>findAll</p>
-
-<p>findOne</p>
-
-<p>update</p>
-
-<p>delete</p>
-
-<p>
-  <button (click)="onHideLeftSideBar()" type="button" class="btn btn-primary">HideLeftSideBar(Not implemented)</button>
+  REST API Test
 </p>
 
 
-
+<p>Users <button type="button" (click)="findAll()">load users</button></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">fullName</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">isActive</th>
+      <th scope="col">-</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>-</th>
+      <td><input placeholder="Enter fullName" [(ngModel)]="newUser.fullName"></td>
+      <td><input placeholder="Enter birthday" [(ngModel)]="newUser.birthday"></td>
+      <td><input placeholder="Enter isActive" [(ngModel)]="newUser.isActive"></td>
+      <td>
+        <button type="button" (click)="create(newUser)">Create</button>
+      </td>
+    </tr>
+    <tr *ngFor="let user of users">
+      <th scope="row">{{user.id}}</th>
+      <td><input placeholder="Enter fullName" [(ngModel)]="user.fullName"></td>
+      <td><input placeholder="Enter birthday" [(ngModel)]="user.birthday"></td>
+      <td><input placeholder="Enter isActive" [(ngModel)]="user.isActive"></td>
+      <td>
+        <button (click)="findOne(user.id)" type="button">Select</button>
+        <button (click)="delete(user.id)" type="button">Delete</button>
+        <button (click)="update(user)" type="button">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
