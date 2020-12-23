@@ -1,50 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-declare let Kakao:any;	
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit() {
+  user = { login_id: "team_manager@kfa.or.kr", passwd: "sa21c" }
+  // ngOnInit(): void {
+  // }
 
-    console.log('run script')
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-        container: '#kakao-login-btn',
-        success: function (authObj) {
-            // alert(JSON.stringify(authObj));
-        },
-        fail: function (err) {
-            alert(JSON.stringify(err));
-        }
+  saveToLocalStorage(user) {
+
+  }
+
+  deleteFromLocalStorage(user) { }
+
+
+
+  login(user) {
+    this.userService.login(user).subscribe((res: any)=> {
+      localStorage.setItem("uuid", res.uuid);
+      localStorage.setItem("user_id", res.user_id);
     });
   }
 
-  onLogout() {
-    if (!Kakao.Auth.getAccessToken()) {
-      console.log('Not logged in.');
-      return;
-    }
-    Kakao.Auth.logout(function() {
-      console.log('Log-out successful');
-      console.log('Kakao.Auth.getAccessToken()', Kakao.Auth.getAccessToken());
+  info() {
+    let user = { "login_id": localStorage.getItem("user_id"), "uuid": localStorage.getItem("uuid") };
+    console.log('user', user);
+    this.userService.info(user).subscribe((res: any)=> {
+      document.getElementById("info").innerHTML = JSON.stringify(res);
     });
+
   }
 
-  onUnlink() {
-    Kakao.API.request({
-      url: '/v1/user/unlink',
-      success: function(response) {
-        console.log(response);
-      },
-      fail: function(error) {
-        console.log(error);
-      },
-    });
+  findAll() {
+    this.userService.findAll().subscribe((data: any[]) => {
+      // this.users = data;
+    })
   }
+
+
+
 }

@@ -9,6 +9,7 @@ import { RegistrationModule } from './registration/registration.module';
 import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
 import { AccountSettingsModule } from './account-settings/account-settings.module';
+import { KakaoModule } from './kakao/kakao.module';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
     DashboardModule,
     RegistrationModule,
     UsersModule,
-    AccountSettingsModule
+    AccountSettingsModule,
+    KakaoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
