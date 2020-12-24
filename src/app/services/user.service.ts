@@ -30,21 +30,34 @@ export class UserService {
       )
   }
 
-  info(user) {
-    // const payload = new HttpParams()
-    //   .set('login_id', user.login_id)
-    //   .set('uuid', user.uuid);
+  logout(user) {
+    const payload = new HttpParams()
+      .set('user_id', user.user_id)
+      .set('passwd', user.passwd);
 
-    // return this.httpClient.post(this.sa21cApiServer + '/user/info', payload)
-    //   .pipe(
-    //     catchError(this.errorHandler)
-    //   )
-
-    console.log("user - service", user)
-    return this.httpClient.post(this.sa21cApiServer + '/user/info', JSON.stringify(user), this.httpOptions)
+    return this.httpClient.post(this.sa21cApiServer + '/user/logout', payload)
       .pipe(
         catchError(this.errorHandler)
       )
+  }
+
+  info(user) {
+    const payload = new HttpParams()
+      .set('user_id', user.user_id)
+      .set('uuid', user.uuid);
+
+    console.log(payload);
+
+    return this.httpClient.post(this.sa21cApiServer + '/user/info', payload)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+
+    // console.log("user - service", user)
+    // return this.httpClient.post(this.sa21cApiServer + '/user/info', JSON.stringify(user), this.httpOptions)
+    //   .pipe(
+    //     catchError(this.errorHandler)
+    //   )
 
   }
 
