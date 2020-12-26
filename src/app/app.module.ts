@@ -10,6 +10,7 @@ import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
 import { AccountSettingsModule } from './account-settings/account-settings.module';
 import { KakaoModule } from './kakao/kakao.module';
+import { HighChartsModule } from './high-charts/high-charts.module';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
     RegistrationModule,
     UsersModule,
     AccountSettingsModule,
+    HighChartsModule,
     KakaoModule
   ],
   providers: [],
